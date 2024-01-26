@@ -8,11 +8,13 @@ class TProfileMenu extends StatelessWidget {
     this.icon = Iconsax.arrow_right_34,
     required this.onPressed,
     required this.title,
+    this.needIcon = false,
     required this.value,
   });
   final IconData icon;
   final VoidCallback onPressed;
   final String title, value;
+  final bool needIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -39,12 +41,14 @@ class TProfileMenu extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            Expanded(
-              child: Icon(
-                icon,
-                size: 18,
-              ),
-            )
+            needIcon
+                ? Icon(
+                    icon,
+                    size: 18,
+                  )
+                : const SizedBox(
+                    width: 18.0,
+                  )
           ],
         ),
       ),
