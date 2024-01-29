@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:t_store/common/widgets/images/circular_image.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
@@ -11,10 +12,12 @@ class TVerticalImageText extends StatelessWidget {
     this.textColor = TColors.white,
     this.backgroundColor = TColors.white,
     this.onTap,
+    this.isNetworkImage = true,
   });
   final String image, title;
   final Color textColor;
   final Color? backgroundColor;
+  final bool isNetworkImage;
   final void Function()? onTap;
 
   @override
@@ -27,23 +30,13 @@ class TVerticalImageText extends StatelessWidget {
         child: Column(
           children: [
             //Circular Icon
-            Container(
-              height: 56,
-              width: 56,
-              padding: const EdgeInsets.all(TSizes.sm),
-              decoration: BoxDecoration(
-                color: ((dark) ? TColors.black : TColors.white),
-                borderRadius: BorderRadius.circular(100.0),
-              ),
-              child: Center(
-                  child: SizedBox(
-                height: 32.5,
-                child: Image(
-                  image: AssetImage(image),
-                  fit: BoxFit.contain,
-                  color: ((dark) ? TColors.light : TColors.dark),
-                ),
-              )),
+            TCircularImage(
+              image: image,
+              fit: BoxFit.fitWidth,
+              padding: TSizes.sm * 1.4,
+              isNetworkImage: isNetworkImage,
+              backgroundColor: dark ? TColors.dark : TColors.light,
+              overlayColor: dark ? TColors.light : TColors.dark,
             ),
             const SizedBox(
               height: TSizes.spaceBtwItems / 2,

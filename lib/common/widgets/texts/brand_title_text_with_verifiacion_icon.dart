@@ -23,6 +23,7 @@ class TBrandTitleTextWithVerificationIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
         Flexible(

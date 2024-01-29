@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:t_store/common/widgets/appbar/appbar.dart';
 import 'package:t_store/common/widgets/images/circular_image.dart';
-import 'package:t_store/common/widgets/loaders/shimmer_effect.dart';
+import 'package:t_store/common/widgets/shimmers/shimmer.dart';
 import 'package:t_store/common/widgets/texts/section_heading.dart';
 import 'package:t_store/features/personalization/controllers/user_controller.dart';
 import 'package:t_store/features/personalization/screens/profile/change_name.dart';
@@ -64,7 +64,13 @@ class ProfileScreen extends StatelessWidget {
                     }),
                     TextButton(
                         onPressed: () => controller.uploadUserProfilePicture(),
-                        child: const Text("Change Profile Picture"))
+                        child: Text(
+                          "Change Profile Picture",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .apply(color: TColors.primary),
+                        ))
                   ],
                 ),
               ),
@@ -143,9 +149,12 @@ class ProfileScreen extends StatelessWidget {
               Center(
                 child: TextButton(
                   onPressed: () => controller.deleteAccountWarningPopUp(),
-                  child: const Text(
+                  child: Text(
                     "Close Account",
-                    style: TextStyle(color: Colors.red, fontSize: 15.0),
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium!
+                        .apply(color: Colors.red),
                   ),
                 ),
               )

@@ -8,6 +8,7 @@ import 'package:t_store/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:t_store/common/widgets/texts/section_heading.dart';
 import 'package:t_store/features/personalization/screens/address/address.dart';
 import 'package:t_store/features/personalization/screens/profile/profile.dart';
+import 'package:t_store/features/shop/screens/load_data/load_data.dart';
 import 'package:t_store/features/shop/screens/order/order.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
@@ -106,7 +107,8 @@ class SettingsScreen extends StatelessWidget {
                 const SizedBox(
                   height: TSizes.spaceBtwItems,
                 ),
-                const TSettingMenuTile(
+                TSettingMenuTile(
+                  onTap: () => Get.to(() => const LoadDataScreen()),
                   icon: Iconsax.document_upload,
                   title: "Load Data",
                   subtitle: "Upload data to your Cloud Firebase",

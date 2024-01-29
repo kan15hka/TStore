@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:t_store/data/repositories/authentication/authentication_repository.dart';
 import 'package:t_store/features/authentication/controllers/signup/verify_email_controller.dart';
+import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
@@ -80,7 +81,13 @@ class VerifyEmailScreen extends StatelessWidget {
               ),
               TextButton(
                   onPressed: () => controller.sendEmailVerfification(),
-                  child: const Text(TTexts.resendEmail)),
+                  child: Text(
+                    TTexts.resendEmail,
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium!
+                        .apply(color: TColors.primary),
+                  )),
             ],
           ),
         ),

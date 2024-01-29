@@ -3,8 +3,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:t_store/common/widgets/appbar/appbar.dart';
 import 'package:t_store/common/widgets/icons/circular_icon.dart';
-import 'package:t_store/common/widgets/layouts/grid_layout.dart';
-import 'package:t_store/common/widgets/products/product_cards/product_cards_vertical.dart';
+import 'package:t_store/common/widgets/shimmers/vertical_product_shimmer.dart';
 import 'package:t_store/features/shop/screens/home/home.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 
@@ -26,13 +25,16 @@ class WishListScreen extends StatelessWidget {
           )
         ],
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(TSizes.defaultSpace),
+          padding: EdgeInsets.all(TSizes.defaultSpace),
           child: Column(children: [
-            TGridLayout(
-                itemCount: 6,
-                itemBuilder: (_, index) => TProductCardVertical(index: index))
+            // TGridLayout(
+            //     itemCount: 6,
+            //     itemBuilder: (_, index) => TProductCardVertical(
+            //           product: ProductModel.empty(),
+            //         ))
+            TVerticalProductShimmer()
           ]),
         ),
       ),

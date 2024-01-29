@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:t_store/common/widgets/brands/brand_showcase.dart';
-import 'package:t_store/common/widgets/layouts/grid_layout.dart';
-import 'package:t_store/common/widgets/products/product_cards/product_cards_vertical.dart';
+import 'package:t_store/common/widgets/shimmers/vertical_product_shimmer.dart';
 import 'package:t_store/common/widgets/texts/section_heading.dart';
+import 'package:t_store/features/shop/models/category_model.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 
 class TCategoryTab extends StatelessWidget {
   const TCategoryTab({
     super.key,
+    required this.category,
   });
-
+  final CategoryModel category;
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -48,10 +49,12 @@ class TCategoryTab extends StatelessWidget {
                   height: TSizes.spaceBtwItems,
                 ),
 
-                TGridLayout(
-                    itemCount: 4,
-                    itemBuilder: (_, index) =>
-                        TProductCardVertical(index: index)),
+                const TVerticalProductShimmer(),
+                // TGridLayout(
+                //     itemCount: 4,
+                //     itemBuilder: (_, index) => TProductCardVertical(
+                //           product: ProductModel.empty(),
+                //         )),
                 const SizedBox(
                   height: TSizes.spaceBtwSections,
                 ),

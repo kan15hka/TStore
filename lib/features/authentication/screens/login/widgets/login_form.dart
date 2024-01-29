@@ -4,6 +4,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:t_store/features/authentication/controllers/login/login_controller.dart';
 import 'package:t_store/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:t_store/features/authentication/screens/signup/signup.dart';
+import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
 import 'package:t_store/utils/validators/validation.dart';
@@ -65,7 +66,13 @@ class TLoginForm extends StatelessWidget {
               ),
               TextButton(
                   onPressed: () => Get.to(() => const ForgetPassword()),
-                  child: const Text(TTexts.forgetPassword))
+                  child: Text(
+                    TTexts.forgetPassword,
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium!
+                        .apply(color: TColors.primary),
+                  ))
             ],
           ),
           const SizedBox(

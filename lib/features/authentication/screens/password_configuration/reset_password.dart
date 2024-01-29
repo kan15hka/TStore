@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:t_store/features/authentication/controllers/forget_password/forget_password_controller.dart';
 import 'package:t_store/features/authentication/screens/login/login.dart';
+import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
@@ -88,7 +89,13 @@ class ResetPassword extends StatelessWidget {
               child: TextButton(
                   onPressed: () => ForgetPasswordController.instance
                       .resendPasswordResetEmail(email),
-                  child: const Text(TTexts.resendEmail)),
+                  child: Text(
+                    TTexts.resendEmail,
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium!
+                        .apply(color: TColors.primary),
+                  )),
             ),
           ]),
         ),

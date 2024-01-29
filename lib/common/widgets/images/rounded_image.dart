@@ -1,5 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:t_store/common/widgets/shimmers/shimmer.dart';
 import 'package:t_store/utils/constants/sizes.dart';
+import 'package:t_store/utils/device/device_utility.dart';
 
 class TRoundedImage extends StatelessWidget {
   const TRoundedImage({
@@ -11,7 +14,7 @@ class TRoundedImage extends StatelessWidget {
     this.applyImageRadius = true,
     this.border,
     this.backgroundColor,
-    this.fit,
+    this.fit = BoxFit.contain,
     this.padding,
     this.isNetworkImage = false,
     this.onPressed,
@@ -29,26 +32,41 @@ class TRoundedImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: height,
-      width: width,
-      padding: padding,
-      decoration: BoxDecoration(
-        border: border,
-        color: backgroundColor,
-        borderRadius: BorderRadius.circular(TSizes.md),
-      ),
-      child: Center(
-        child: ClipRRect(
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        height: height,
+        width: width,
+        padding: padding,
+        decoration: BoxDecoration(
+          border: border,
+          color: backgroundColor,
+          borderRadius: BorderRadius.circular(TSizes.md),
+        ),
+        child: Center(
+          child: ClipRRect(
             borderRadius: (applyImageRadius)
                 ? BorderRadius.circular(borderRadius)
                 : BorderRadius.zero,
-            child: Image(
-              image: isNetworkImage
-                  ? NetworkImage(imageUrl)
-                  : AssetImage(imageUrl) as ImageProvider,
-              fit: BoxFit.contain,
-            )),
+            child: isNetworkImage
+                ? CachedNetworkImage(
+                    fit: fit,
+                    imageUrl: imageUrl,
+                    progressIndicatorBuilder:
+                        (context, url, downloadProgress) => TShimmerEffect(
+                      radius: applyImageRadius ? borderRadius : 0.0,
+                      width: TDeviceUtils.getScreenWidth(context) * 0.9,
+                      height: 190,
+                    ),
+                    errorWidget: (context, url, downloadProgress) =>
+                        const Icon(Icons.error),
+                  )
+                : Image(
+                    image: AssetImage(imageUrl),
+                    fit: fit,
+                  ),
+          ),
+        ),
       ),
     );
   }

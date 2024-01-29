@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:t_store/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:t_store/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:t_store/common/widgets/layouts/grid_layout.dart';
 import 'package:t_store/common/widgets/products/product_cards/product_cards_vertical.dart';
+import 'package:t_store/common/widgets/shimmers/vertical_product_shimmer.dart';
 import 'package:t_store/common/widgets/texts/section_heading.dart';
+import 'package:t_store/features/shop/controllers/product_controller.dart';
 import 'package:t_store/features/shop/screens/all_products/all_products.dart';
 import 'package:t_store/features/shop/screens/home/widget/home_appbar.dart';
 import 'package:t_store/features/shop/screens/home/widget/home_categories.dart';
 import 'package:t_store/features/shop/screens/home/widget/promo_slider.dart';
-import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -18,6 +21,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProductController());
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -69,13 +73,7 @@ class HomeScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     //Promo Slider
-                    const TPromoSlider(
-                      banners: [
-                        TImages.promoBanner1,
-                        TImages.promoBanner2,
-                        TImages.promoBanner3
-                      ],
-                    ),
+                    const TPromoSlider(),
                     const SizedBox(
                       height: TSizes.spaceBtwItems,
                     ),
@@ -88,12 +86,28 @@ class HomeScreen extends StatelessWidget {
                       height: TSizes.spaceBtwInputFields,
                     ),
                     //Products GridView
-                    TGridLayout(
-                      itemBuilder: (_, index) => TProductCardVertical(
-                        index: index,
-                      ),
-                      itemCount: 6,
-                    )
+                    Obx(() {
+                      if (controller.isLoading.value) {
+                        return const TVerticalProductShimmer();
+                      }
+                      if (controller.featuredProducts.isEmpty) {
+                        return Center(
+                          child: Text(
+                            "No Data Found",
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleLarge!
+                                .apply(color: Colors.white),
+                          ),
+                        );
+                      }
+                      return TGridLayout(
+                        itemCount: controller.featuredProducts.length,
+                        itemBuilder: (_, index) => TProductCardVertical(
+                          product: controller.featuredProducts[index],
+                        ),
+                      );
+                    })
                   ],
                 ))
           ],
