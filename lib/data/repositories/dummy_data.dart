@@ -1,7 +1,9 @@
 import 'package:t_store/features/shop/models/banner_model.dart';
+import 'package:t_store/features/shop/models/brand_category_model.dart';
 import 'package:t_store/features/shop/models/brand_model.dart';
 import 'package:t_store/features/shop/models/category_model.dart';
 import 'package:t_store/features/shop/models/product_attribute_model.dart';
+import 'package:t_store/features/shop/models/product_category_model.dart';
 import 'package:t_store/features/shop/models/product_model.dart';
 import 'package:t_store/features/shop/models/product_variation_model.dart';
 import 'package:t_store/routes/routes.dart';
@@ -10,7 +12,6 @@ import 'package:t_store/utils/constants/image_strings.dart';
 
 class TDummyData {
   ////////////////////BANNERS///////////////////////
-
   static final List<BannerModel> oldBanners = [
     BannerModel(
       imageUrl: TImages.banner1,
@@ -70,6 +71,7 @@ class TDummyData {
       active: true,
     ),
   ];
+
   ////////////////////CATEGORIES////////////////////
   static final List<CategoryModel> categories = [
     CategoryModel(
@@ -186,10 +188,11 @@ class TDummyData {
       id: "001",
       stock: 15,
       price: 135,
-      title: "Green Nike Sports shoe",
+      title: "Nike Sports shoe",
       isFeatured: true,
-      thumbnail: TImages.productImage1,
-      description: "Green Nike Sports shoe",
+      thumbnail: TImages.nikeAir1,
+      description:
+          "Nike, Inc. is an American athletic footwear and apparel corporation headquartered near Beaverton, Oregon, United States. It is the world's largest supplier of athletic shoes and apparel and a major manufacturer of sports equipment, with revenue in excess of US\$46 billion in its fiscal year 2022",
       brand: BrandModel(
           id: "1",
           image: TImages.nikeLogo,
@@ -197,10 +200,9 @@ class TDummyData {
           productsCount: 265,
           isFeatured: true),
       images: [
-        TImages.productImage1,
-        TImages.productImage23,
-        TImages.productImage21,
-        TImages.productImage9,
+        TImages.nikeAir1,
+        TImages.nikeAir2,
+        TImages.nikeAir3,
       ],
       salePrice: 30,
       sku: "ABR4568",
@@ -221,44 +223,54 @@ class TDummyData {
           stock: 34,
           price: 134,
           salePrice: 122.6,
-          image: TImages.productImage1,
+          image: TImages.nikeAir1,
           description:
-              "This is a product description of Green Nike sports shoe",
+              "This is a product description of the producct variation",
           attributeValues: {"Color": "Green", "Size": "EU 34"},
         ),
         ProductVariationModel(
           id: "2",
           stock: 15,
           price: 132,
-          image: TImages.productImage23,
+          image: TImages.nikeAir2,
+          description:
+              "This is a product description of the producct variation",
           attributeValues: {"Color": "Black", "Size": "EU 32"},
         ),
         ProductVariationModel(
           id: "3",
           stock: 0,
           price: 234,
-          image: TImages.productImage23,
+          image: TImages.nikeAir2,
+          description:
+              "This is a product description of the producct variation",
           attributeValues: {"Color": "Black", "Size": "EU 34"},
         ),
         ProductVariationModel(
           id: "4",
           stock: 232,
           price: 234,
-          image: TImages.productImage1,
+          image: TImages.nikeAir1,
+          description:
+              "This is a product description of the producct variation",
           attributeValues: {"Color": "Green", "Size": "EU 32"},
         ),
         ProductVariationModel(
           id: "5",
           stock: 222,
           price: 102,
-          image: TImages.productImage21,
+          image: TImages.nikeAir3,
+          description:
+              "This is a product description of the producct variation",
           attributeValues: {"Color": "Red", "Size": "EU 34"},
         ),
         ProductVariationModel(
           id: "6",
           stock: 25,
           price: 334,
-          image: TImages.productImage21,
+          image: TImages.nikeAir3,
+          description:
+              "This is a product description of the producct variation",
           attributeValues: {"Color": "Red", "Size": "EU 32"},
         ),
       ],
@@ -270,7 +282,7 @@ class TDummyData {
       price: 1200,
       title: "Brown Leather Jacket",
       isFeatured: true,
-      thumbnail: TImages.productImage64,
+      thumbnail: TImages.adidasJacket1,
       description:
           "A brown leatherjacket with high durability and strength. Servers your purpose in a tougher way",
       brand: BrandModel(
@@ -280,13 +292,11 @@ class TDummyData {
           productsCount: 265,
           isFeatured: true),
       images: [
-        TImages.productImage64,
-        TImages.productImage65,
-        TImages.productImage66,
-        TImages.productImage67,
+        TImages.adidasJacket1,
+        TImages.adidasJacket2,
       ],
       salePrice: 1000,
-      sku: "GHt8942",
+      sku: "GHt8941",
       categoryId: "2",
       productType: ProductType.single.toString(),
     ),
@@ -296,7 +306,7 @@ class TDummyData {
       price: 135,
       title: "Nike Air Jordan",
       isFeatured: true,
-      thumbnail: TImages.productImage7,
+      thumbnail: TImages.nikeJordan_magenta,
       description:
           "MJ wore 'em when he claimed his first championship and you'll be wearing 'em for—well, whatever you want. Laden with dynamic design lines and those iconic lace locks, these sneakers bring throwback style to any 'fit. Lace up, and let your kicks do the talking.",
       brand: BrandModel(
@@ -306,10 +316,10 @@ class TDummyData {
           productsCount: 360,
           isFeatured: true),
       images: [
-        TImages.productImage7,
-        TImages.productImage8,
-        TImages.productImage9,
-        TImages.productImage10,
+        TImages.nikeJordan_blackred,
+        TImages.nikeJordan_orange,
+        TImages.nikeJordan_magenta,
+        TImages.nikeJordan_whitered,
       ],
       salePrice: 30,
       sku: "ABR4568",
@@ -331,62 +341,76 @@ class TDummyData {
       ],
       productVariations: [
         ProductVariationModel(
+          description:
+              "This is a product description of the producct variation",
+          id: "5",
+          stock: 222,
+          price: 102,
+          image: TImages.nikeJordan_magenta,
+          attributeValues: {"Color": "Magenta", "Size": "EU 30"},
+        ),
+        ProductVariationModel(
+          description:
+              "This is a product description of the producct variation",
+          id: "6",
+          stock: 25,
+          price: 334,
+          image: TImages.nikeJordan_magenta,
+          attributeValues: {"Color": "Magenta", "Size": "EU 32"},
+        ),
+        ProductVariationModel(
+          description:
+              "This is a product description of the producct variation",
           id: "1",
           stock: 34,
           price: 134,
           salePrice: 122.6,
-          image: TImages.productImage7,
-          description:
-              "This is a product description of Green Nike sports shoe",
+          image: TImages.nikeJordan_blackred,
           attributeValues: {"Color": "Black", "Size": "EU 30"},
         ),
         ProductVariationModel(
+          description:
+              "This is a product description of the producct variation",
           id: "2",
           stock: 15,
           price: 132,
-          image: TImages.productImage7,
+          image: TImages.nikeJordan_blackred,
           attributeValues: {"Color": "Black", "Size": "EU 32"},
         ),
         ProductVariationModel(
+          description:
+              "This is a product description of the producct variation",
           id: "3",
           stock: 0,
           price: 234,
-          image: TImages.productImage8,
+          image: TImages.nikeJordan_orange,
           attributeValues: {"Color": "Orange", "Size": "EU 30"},
         ),
         ProductVariationModel(
+          description:
+              "This is a product description of the producct variation",
           id: "4",
           stock: 232,
           price: 234,
-          image: TImages.productImage8,
+          image: TImages.nikeJordan_orange,
           attributeValues: {"Color": "Orange", "Size": "EU 32"},
         ),
         ProductVariationModel(
-          id: "5",
-          stock: 222,
-          price: 102,
-          image: TImages.productImage9,
-          attributeValues: {"Color": "Magenta", "Size": "EU 30"},
-        ),
-        ProductVariationModel(
-          id: "6",
-          stock: 25,
-          price: 334,
-          image: TImages.productImage9,
-          attributeValues: {"Color": "Magenta", "Size": "EU 32"},
-        ),
-        ProductVariationModel(
+          description:
+              "This is a product description of the producct variation",
           id: "7",
           stock: 222,
           price: 102,
-          image: TImages.productImage10,
+          image: TImages.nikeJordan_whitered,
           attributeValues: {"Color": "Red", "Size": "EU 30"},
         ),
         ProductVariationModel(
+          description:
+              "This is a product description of the producct variation",
           id: "8",
           stock: 25,
           price: 334,
-          image: TImages.productImage10,
+          image: TImages.nikeJordan_whitered,
           attributeValues: {"Color": "Red", "Size": "EU 32"},
         ),
       ],
@@ -398,7 +422,7 @@ class TDummyData {
       price: 560,
       title: "Zara Track Suit",
       isFeatured: true,
-      thumbnail: TImages.productImage24,
+      thumbnail: TImages.zara_trackSuit_black,
       description:
           "Tracksuits are a wardrobe staple for fitness and fashion enthusiasts alike for their comfy feel and trendy appearance. Crafted from breathable materials, the outfit helps avoid sweat, keeping you cool and comfortable all day long as well as for workout sessions.",
       brand: BrandModel(
@@ -408,9 +432,9 @@ class TDummyData {
           productsCount: 690,
           isFeatured: true),
       images: [
-        TImages.productImage24,
-        TImages.productImage25,
-        TImages.productImage26,
+        TImages.zara_trackSuit_black,
+        TImages.zara_trackSuit_blue,
+        TImages.zara_trackSuit_red,
       ],
       salePrice: 500,
       sku: "ABR4568",
@@ -435,48 +459,413 @@ class TDummyData {
           stock: 34,
           price: 134,
           salePrice: 122.6,
-          image: TImages.productImage24,
+          image: TImages.zara_trackSuit_black,
           description:
-              "This is a product description of Green Nike sports shoe",
+              "This is a product description of the producct variation",
           attributeValues: {"Color": "Black", "Size": "EU 30"},
         ),
         ProductVariationModel(
           id: "2",
           stock: 15,
           price: 132,
-          image: TImages.productImage24,
+          image: TImages.zara_trackSuit_black,
           attributeValues: {"Color": "Black", "Size": "EU 32"},
+          description:
+              "This is a product description of the producct variation",
         ),
         ProductVariationModel(
           id: "3",
           stock: 0,
           price: 234,
-          image: TImages.productImage25,
+          image: TImages.zara_trackSuit_blue,
           attributeValues: {"Color": "Blue", "Size": "EU 30"},
+          description:
+              "This is a product description of the producct variation",
         ),
         ProductVariationModel(
           id: "4",
           stock: 232,
           price: 234,
-          image: TImages.productImage25,
+          image: TImages.zara_trackSuit_blue,
           attributeValues: {"Color": "Blue", "Size": "EU 32"},
+          description:
+              "This is a product description of the producct variation",
         ),
         ProductVariationModel(
           id: "5",
           stock: 222,
           price: 102,
-          image: TImages.productImage26,
+          image: TImages.zara_trackSuit_red,
           attributeValues: {"Color": "Red", "Size": "EU 30"},
+          description:
+              "This is a product description of the producct variation",
         ),
         ProductVariationModel(
           id: "6",
           stock: 25,
           price: 334,
-          image: TImages.productImage26,
+          image: TImages.zara_trackSuit_red,
           attributeValues: {"Color": "Red", "Size": "EU 32"},
+          description:
+              "This is a product description of the producct variation",
         ),
       ],
       productType: ProductType.variable.toString(),
     ),
+    ProductModel(
+      id: "005",
+      stock: 100,
+      price: 80000,
+      title: "Acer Nitro V Gaming Laptop",
+      isFeatured: true,
+      thumbnail: TImages.acerLaptop2,
+      description:
+          "Acer Nitro V Gaming Laptop Intel Core i5-13420H Processor (Windows 11 Home/ 8 GB/ 512 GB SSD/ NVIDIA GeForce RTX 3050/ 144Hz) ANV15-51 with FHD 39.62 cm (15.6) IPS Display, Obsidian Black, 2.1 KG",
+      brand: BrandModel(
+          id: "9",
+          image: TImages.acerlogo,
+          name: "Acer",
+          productsCount: 265,
+          isFeatured: true),
+      images: [
+        TImages.acerLaptop1,
+        TImages.acerLaptop2,
+        TImages.acerLaptop4,
+        TImages.acerLaptop3,
+      ],
+      salePrice: 75000,
+      sku: "GHt8942",
+      categoryId: "2",
+      productType: ProductType.single.toString(),
+    ),
+    ProductModel(
+      id: "006",
+      stock: 520,
+      price: 1300,
+      title: "Nike Football",
+      isFeatured: true,
+      thumbnail: TImages.adidasFootball,
+      description:
+          "Nike OCEAUNZ CLB Football - Size: 5. 10% off. 1,999. ₹1,799 ; ADIDAS Nylon Pop-up Goal and Target 6 feet",
+      brand: BrandModel(
+          id: "1",
+          image: TImages.nikeLogo,
+          name: "Nike",
+          productsCount: 265,
+          isFeatured: true),
+      images: [
+        TImages.adidasFootball,
+      ],
+      salePrice: 1250,
+      sku: "GHt8942",
+      categoryId: "1",
+      productType: ProductType.single.toString(),
+    ),
+    ProductModel(
+      id: "007",
+      stock: 20,
+      price: 25000,
+      title: "Herman Miller Bed",
+      isFeatured: true,
+      thumbnail: TImages.hmBed1,
+      description:
+          "At Herman Miller, we want you to do great things. That's why we make problem-solving designs that are as beautiful as they are useful",
+      brand: BrandModel(
+          id: "8",
+          image: TImages.hermanMillerLogo,
+          name: "Herman Miller",
+          productsCount: 265,
+          isFeatured: true),
+      images: [
+        TImages.hmBed1,
+        TImages.hmBed2,
+        TImages.hmBed3,
+        TImages.hmBed4,
+      ],
+      salePrice: 22250,
+      sku: "ABR4568",
+      categoryId: "1",
+      productAttributes: [
+        ProductAttributeModel(
+          name: "Color",
+          values: ["Black", "Sandal", "Brown", "Dark Brown"],
+        ),
+      ],
+      productVariations: [
+        ProductVariationModel(
+          id: "1",
+          stock: 34,
+          price: 22200,
+          salePrice: 22000,
+          image: TImages.hmBed1,
+          description: "This is a product description of the product variation",
+          attributeValues: {"Color": "Black"},
+        ),
+        ProductVariationModel(
+          id: "2",
+          stock: 56,
+          price: 21200,
+          salePrice: 23000,
+          image: TImages.hmBed2,
+          description: "This is a product description of the product variation",
+          attributeValues: {"Color": "Sandal"},
+        ),
+        ProductVariationModel(
+          id: "3",
+          stock: 56,
+          price: 22500,
+          salePrice: 21000,
+          image: TImages.hmBed3,
+          description: "This is a product description of the product variation",
+          attributeValues: {"Color": "Brown"},
+        ),
+        ProductVariationModel(
+          id: "3",
+          stock: 56,
+          price: 22500,
+          salePrice: 21000,
+          image: TImages.hmBed4,
+          description: "This is a product description of the product variation",
+          attributeValues: {"Color": "Dark Brown"},
+        ),
+      ],
+      productType: ProductType.variable.toString(),
+    ),
+    ProductModel(
+      id: "008",
+      stock: 1055,
+      price: 15000,
+      title: "Apple Iphone 8",
+      isFeatured: true,
+      thumbnail: TImages.adidasFootball,
+      description:
+          "iOS 11, up to iOS 16.7.5 64GB/128GB/256GB storage, no card slot",
+      brand: BrandModel(
+          id: "4",
+          image: TImages.appleLogo,
+          name: "Apple",
+          productsCount: 350,
+          isFeatured: true),
+      images: [
+        TImages.iphone8_1,
+        TImages.iphone8_2,
+        TImages.iphone8_3,
+        TImages.iphone8_4,
+      ],
+      salePrice: 14500,
+      sku: "GHt8942",
+      categoryId: "2",
+      productType: ProductType.single.toString(),
+    ),
+    ProductModel(
+      id: "009",
+      stock: 500,
+      price: 60000,
+      title: "Apple Iphone 12",
+      isFeatured: true,
+      thumbnail: TImages.iphone12_1,
+      description:
+          "Super Retina XDR display; 5.4-inch (diagonal) all-screen OLED display; 2340-by-1080-pixel resolution at 476 ppi",
+      brand: BrandModel(
+          id: "4",
+          image: TImages.appleLogo,
+          name: "Apple",
+          productsCount: 750,
+          isFeatured: true),
+      images: [
+        TImages.iphone12_1,
+        TImages.iphone12_2,
+        TImages.iphone12_3,
+        TImages.iphone12_4,
+      ],
+      salePrice: 59000,
+      sku: "ABR4568",
+      categoryId: "2",
+      productAttributes: [
+        ProductAttributeModel(
+          name: "Color",
+          values: ["Red", "Blue", "Green", "Black"],
+        ),
+      ],
+      productVariations: [
+        ProductVariationModel(
+          id: "1",
+          stock: 34,
+          price: 60000,
+          salePrice: 58000,
+          image: TImages.iphone12_1,
+          description: "This is a product description of the product variation",
+          attributeValues: {"Color": "Red"},
+        ),
+        ProductVariationModel(
+          id: "2",
+          stock: 34,
+          price: 60000,
+          salePrice: 59000,
+          image: TImages.iphone12_2,
+          description: "This is a product description of the product variation",
+          attributeValues: {"Color": "Blue"},
+        ),
+        ProductVariationModel(
+          id: "3",
+          stock: 34,
+          price: 60000,
+          salePrice: 58500,
+          image: TImages.iphone12_3,
+          description: "This is a product description of the product variation",
+          attributeValues: {"Color": "Green"},
+        ),
+        ProductVariationModel(
+          id: "4",
+          stock: 34,
+          price: 60000,
+          salePrice: 60000,
+          image: TImages.iphone12_4,
+          description: "This is a product description of the product variation",
+          attributeValues: {"Color": "Black"},
+        ),
+      ],
+      productType: ProductType.variable.toString(),
+    ),
+    ProductModel(
+      id: "010",
+      stock: 263,
+      price: 500,
+      title: "Puma FlipFlop",
+      isFeatured: true,
+      thumbnail: TImages.pumaSlipper1,
+      description:
+          "Shop from the brand new collection of PUMA® men's sandals and flip-flops",
+      brand: BrandModel(
+          id: "6",
+          image: TImages.pumaLogo,
+          name: "Puma",
+          productsCount: 350,
+          isFeatured: true),
+      images: [
+        TImages.pumaSlipper1,
+        TImages.pumaSlipper2,
+        TImages.pumaSlipper3,
+        TImages.pumaSlipper4,
+      ],
+      salePrice: 489,
+      sku: "GHt8942",
+      categoryId: "2",
+      productType: ProductType.single.toString(),
+    ),
+    ProductModel(
+      id: "011",
+      stock: 263,
+      price: 250,
+      title: "Dog Food",
+      isFeatured: true,
+      thumbnail: TImages.dogfood1,
+      description: "A best dog food to feedyour lovely dogs",
+      brand: BrandModel(
+          id: "10",
+          image: TImages.ikeaLogo,
+          name: "Ikea",
+          productsCount: 350,
+          isFeatured: true),
+      images: [
+        TImages.dogfood1,
+      ],
+      salePrice: 200,
+      sku: "GHt8942",
+      categoryId: "4",
+      productType: ProductType.single.toString(),
+    ),
+  ];
+
+  ////////////////////////BRANDS/////////////////////////
+  static final List<BrandModel> brands = [
+    BrandModel(
+        id: "1",
+        image: TImages.nikeLogo,
+        name: "Nike",
+        productsCount: 265,
+        isFeatured: true),
+    BrandModel(
+        id: "2",
+        image: TImages.adidasLogo,
+        name: "Adidas",
+        productsCount: 265,
+        isFeatured: true),
+    BrandModel(
+        id: "3",
+        image: TImages.zaraLogo,
+        name: "Zara",
+        productsCount: 690,
+        isFeatured: true),
+    BrandModel(
+        id: "4",
+        image: TImages.appleLogo,
+        name: "Apple",
+        productsCount: 96,
+        isFeatured: true),
+    BrandModel(
+        id: "5",
+        image: TImages.jordanLogo,
+        name: "Jordan",
+        productsCount: 480,
+        isFeatured: true),
+    BrandModel(
+        id: "6",
+        image: TImages.pumaLogo,
+        name: "Puma",
+        productsCount: 480,
+        isFeatured: true),
+    BrandModel(
+        id: "7",
+        image: TImages.kenwoodLogo,
+        name: "Kenwood",
+        productsCount: 480,
+        isFeatured: true),
+    BrandModel(
+        id: "8",
+        image: TImages.hermanMillerLogo,
+        name: "Herman Miller",
+        productsCount: 480,
+        isFeatured: true),
+    BrandModel(
+        id: "9",
+        image: TImages.acerlogo,
+        name: "Acer",
+        productsCount: 480,
+        isFeatured: true),
+    BrandModel(
+        id: "10",
+        image: TImages.ikeaLogo,
+        name: "Ikea",
+        productsCount: 480,
+        isFeatured: true),
+  ];
+
+  static final List<BrandCategoryModel> brandCategorys = [
+    BrandCategoryModel(brandId: "1", categoryId: "6"),
+    BrandCategoryModel(brandId: "1", categoryId: "1"),
+    BrandCategoryModel(brandId: "2", categoryId: "3"),
+    BrandCategoryModel(brandId: "2", categoryId: "1"),
+    BrandCategoryModel(brandId: "3", categoryId: "3"),
+    BrandCategoryModel(brandId: "4", categoryId: "2"),
+    BrandCategoryModel(brandId: "6", categoryId: "6"),
+    BrandCategoryModel(brandId: "8", categoryId: "5"),
+    BrandCategoryModel(brandId: "9", categoryId: "2"),
+    BrandCategoryModel(brandId: "10", categoryId: "4")
+  ];
+  static final List<ProductCategoryModel> productCategorys = [
+    ProductCategoryModel(productId: "001", categoryId: "1"),
+    ProductCategoryModel(productId: "001", categoryId: "6"),
+    ProductCategoryModel(productId: "002", categoryId: "3"),
+    ProductCategoryModel(productId: "003", categoryId: "6"),
+    ProductCategoryModel(productId: "003", categoryId: "1"),
+    ProductCategoryModel(productId: "004", categoryId: "1"),
+    ProductCategoryModel(productId: "005", categoryId: "2"),
+    ProductCategoryModel(productId: "006", categoryId: "1"),
+    ProductCategoryModel(productId: "007", categoryId: "5"),
+    ProductCategoryModel(productId: "008", categoryId: "2"),
+    ProductCategoryModel(productId: "009", categoryId: "2"),
+    ProductCategoryModel(productId: "010", categoryId: "6"),
+    ProductCategoryModel(productId: "011", categoryId: "4"),
   ];
 }

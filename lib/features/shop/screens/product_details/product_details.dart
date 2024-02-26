@@ -11,6 +11,7 @@ import 'package:t_store/features/shop/screens/product_details/widgets/product_im
 import 'package:t_store/features/shop/screens/product_details/widgets/product_meta_data.dart';
 import 'package:t_store/features/shop/screens/product_details/widgets/rating_share_widget.dart';
 import 'package:t_store/features/shop/screens/product_reviews/product_reviews.dart';
+import 'package:t_store/utils/constants/enums.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 
 class ProductDetailScreen extends StatelessWidget {
@@ -24,7 +25,9 @@ class ProductDetailScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(children: [
           //Product Image Slider
-          const TProductImageSlider(),
+          TProductImageSlider(
+            product: product,
+          ),
 
           //Product Details
           Padding(
@@ -38,13 +41,19 @@ class ProductDetailScreen extends StatelessWidget {
                 const TRatingAndShare(),
 
                 //Price Title Stock and Brand
-                const TProductMetaData(),
+                TProductMetaData(
+                  product: product,
+                ),
 
                 //Attributes
-                const TProductAttributes(),
-                const SizedBox(
-                  height: TSizes.spaceBtwSections,
-                ),
+                if (product.productType == ProductType.variable.toString())
+                  TProductAttributes(
+                    product: product,
+                  ),
+                if (product.productType == ProductType.variable.toString())
+                  const SizedBox(
+                    height: TSizes.spaceBtwSections,
+                  ),
 
                 //Checkout Button
                 SizedBox(
@@ -71,16 +80,16 @@ class ProductDetailScreen extends StatelessWidget {
                 const SizedBox(
                   height: TSizes.spaceBtwItems,
                 ),
-                const ReadMoreText(
-                  "This is a product description for Blue Nike Sleeve less vest. There are more things thatcan  be added but Iam just practicingand nothing else.",
+                ReadMoreText(
+                  product.description ?? "This is the product description.",
                   trimLines: 2,
                   trimMode: TrimMode.Line,
                   trimCollapsedText: "  Show more",
                   trimExpandedText: "  Less",
                   moreStyle:
-                      TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                      const TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
                   lessStyle:
-                      TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                      const TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
                 ),
 
                 //Reviews

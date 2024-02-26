@@ -30,6 +30,10 @@ class THelperFunctions {
       return Colors.deepOrange;
     } else if (value == 'Brown') {
       return Colors.brown;
+    } else if (value == 'Dark Brown') {
+      return const Color.fromARGB(255, 63, 42, 35);
+    } else if (value == 'Sandal') {
+      return const Color.fromARGB(255, 219, 186, 175);
     } else if (value == 'Teal') {
       return Colors.teal;
     } else if (value == 'Indigo') {

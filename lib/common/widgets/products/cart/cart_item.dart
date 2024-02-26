@@ -18,7 +18,7 @@ class TCartItem extends StatelessWidget {
       children: [
         //Image
         TRoundedImage(
-          imageUrl: TImages.productImage1,
+          imageUrl: TImages.nikeAir1,
           height: 60.0,
           width: 60.0,
           padding: const EdgeInsets.all(TSizes.sm),

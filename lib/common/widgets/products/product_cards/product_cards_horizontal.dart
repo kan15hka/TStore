@@ -39,7 +39,7 @@ class TProductCardHorizontal extends StatelessWidget {
                   height: 120.0,
                   width: 120.0,
                   child: TRoundedImage(
-                    imageUrl: TImages.productImage1,
+                    imageUrl: TImages.nikeAir1,
                     applyImageRadius: true,
                   ),
                 ),

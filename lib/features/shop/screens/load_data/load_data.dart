@@ -4,9 +4,11 @@ import 'package:iconsax/iconsax.dart';
 import 'package:t_store/common/widgets/appbar/appbar.dart';
 import 'package:t_store/common/widgets/texts/section_heading.dart';
 import 'package:t_store/data/repositories/banners/banners_repositoty.dart';
+import 'package:t_store/data/repositories/brand/brand_repository.dart';
 import 'package:t_store/data/repositories/category/category_repository.dart';
 import 'package:t_store/data/repositories/dummy_data.dart';
 import 'package:t_store/data/repositories/product/product_repository.dart';
+import 'package:t_store/data/repositories/sub_record/sub_record_repository.dart';
 import 'package:t_store/features/shop/screens/load_data/widgets/upload_data_tile.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 
@@ -18,7 +20,8 @@ class LoadDataScreen extends StatelessWidget {
     final categoryRepository = Get.put(CategoryRepository());
     final bannerRepository = Get.put(BannerRepository());
     final productRepository = Get.put(ProductRepository());
-
+    final brandRepository = Get.put(BrandRepository());
+    final subRecordRepository = Get.put(SubRecordRepository());
     return Scaffold(
       appBar: TAppBar(
         showBackArrow: true,
@@ -61,13 +64,13 @@ class LoadDataScreen extends StatelessWidget {
               TUploadDataTile(
                 text: "Upload Brands",
                 icon: Iconsax.gallery,
-                onTap: () {},
+                onTap: () => brandRepository.uploadDummyData(TDummyData.brands),
               ),
               const SizedBox(
                 height: TSizes.spaceBtwItems,
               ),
               const TSectionHeading(
-                title: "Main Record",
+                title: "Sub Record",
                 showActionButton: false,
               ),
               const Text(
@@ -78,12 +81,14 @@ class LoadDataScreen extends StatelessWidget {
               TUploadDataTile(
                 text: "Upload Brands & Categories Relation Data",
                 icon: Iconsax.link,
-                onTap: () {},
+                onTap: () => subRecordRepository
+                    .uploadBrandCategoryDummyData(TDummyData.brandCategorys),
               ),
               TUploadDataTile(
                 text: "Upload Product Categories Relation Data",
                 icon: Iconsax.link,
-                onTap: () {},
+                onTap: () => subRecordRepository.uploadProductCategoryDummyData(
+                    TDummyData.productCategorys),
               ),
             ],
           ),

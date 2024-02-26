@@ -1,11 +1,11 @@
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+import 'package:lottie/lottie.dart';
+import 'package:t_store/utils/constants/image_strings.dart';
 
 /// Helper functions for cloud-related operations.
 class TCloudHelperFunctions {
-
   /// Helper function to check the state of a single database record.
   ///
   /// Returns a Widget based on the state of the snapshot.
@@ -36,7 +36,12 @@ class TCloudHelperFunctions {
   /// If no data is found, it returns a generic "No Data Found" message or a custom nothingFoundWidget if provided.
   /// If an error occurs, it returns a generic error message.
   /// Otherwise, it returns null.
-  static Widget? checkMultiRecordState<T>({required AsyncSnapshot<List<T>> snapshot, Widget? loader, Widget? error, Widget? nothingFound}) {
+  static Widget? checkMultiRecordState<T>(
+      {required AsyncSnapshot<List<T>> snapshot,
+      Widget? loader,
+      Widget? error,
+      Widget? nothingFound,
+      int returnWidgetInt = 1}) {
     if (snapshot.connectionState == ConnectionState.waiting) {
       if (loader != null) return loader;
       return const Center(child: CircularProgressIndicator());
@@ -44,7 +49,16 @@ class TCloudHelperFunctions {
 
     if (!snapshot.hasData || snapshot.data == null || snapshot.data!.isEmpty) {
       if (nothingFound != null) return nothingFound;
-      return const Center(child: Text('No Data Found!'));
+      return (returnWidgetInt == 1)
+          ? Center(child: Text('No Data Found!'))
+          : (returnWidgetInt == 2)
+              ? Column(
+                  children: [
+                    Lottie.asset(TImages.emptyAnimation, height: 200.0),
+                    Text('No Data Found!')
+                  ],
+                )
+              : Container();
     }
 
     if (snapshot.hasError) {
