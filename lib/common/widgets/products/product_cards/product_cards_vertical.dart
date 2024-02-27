@@ -5,6 +5,7 @@ import 'package:t_store/common/styles/shadows.dart';
 import 'package:t_store/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:t_store/common/widgets/icons/circular_icon.dart';
 import 'package:t_store/common/widgets/images/rounded_image.dart';
+import 'package:t_store/common/widgets/products/favourite_icon/favourite_icon.dart';
 import 'package:t_store/common/widgets/texts/brand_title_text_with_verifiacion_icon.dart';
 import 'package:t_store/common/widgets/texts/product_price_text.dart';
 import 'package:t_store/common/widgets/texts/product_title_text.dart';
@@ -74,14 +75,12 @@ class TProductCardVertical extends StatelessWidget {
                         ),
                       )),
                 //Favorite Icon
-                const Positioned(
-                  top: 0.0,
-                  right: 0.0,
-                  child: TCircularIcon(
-                    icon: Iconsax.heart5,
-                    color: Colors.red,
-                  ),
-                )
+                Positioned(
+                    top: 0.0,
+                    right: 0.0,
+                    child: TFavouriteIcon(
+                      productId: product.id,
+                    ))
               ],
             ),
           ),

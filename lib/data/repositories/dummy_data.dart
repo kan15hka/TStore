@@ -81,11 +81,6 @@ class TDummyData {
       isFeatured: true,
     ),
     CategoryModel(
-        id: "5",
-        name: "Furniture",
-        image: TImages.furnitureIcon,
-        isFeatured: true),
-    CategoryModel(
         id: "2",
         name: "Electronics",
         image: TImages.electronicsIcon,
@@ -103,6 +98,12 @@ class TDummyData {
       isFeatured: true,
     ),
     CategoryModel(
+        id: "5",
+        name: "Furniture",
+        image: TImages.furnitureIcon,
+        isFeatured: true),
+
+    CategoryModel(
       id: "6",
       name: "Shoes",
       image: TImages.shoeIcon,
@@ -114,7 +115,7 @@ class TDummyData {
         image: TImages.cosmeticsIcon,
         isFeatured: true),
     CategoryModel(
-        id: "14",
+        id: "8",
         name: "Jwellery",
         image: TImages.jeweleryIcon,
         isFeatured: true),
@@ -122,63 +123,77 @@ class TDummyData {
     //SubCategories
     //Sports
     CategoryModel(
-        id: "8",
+        id: "9",
         name: "Sport Shoes",
         image: TImages.sportIcon,
         parentId: "1",
         isFeatured: false),
     CategoryModel(
-        id: "9",
+        id: "10",
         name: "Track Suits",
         parentId: "1",
         image: TImages.sportIcon,
         isFeatured: false),
     CategoryModel(
-        id: "10",
+        id: "11",
         name: "Sport Equipments",
         parentId: "1",
         image: TImages.sportIcon,
         isFeatured: false),
 
-    //Furnitures
-    CategoryModel(
-        id: "11",
-        name: "Bedroom furniture",
-        image: TImages.furnitureIcon,
-        parentId: "5",
-        isFeatured: false),
+//electronics
     CategoryModel(
         id: "12",
-        name: "Kitchen furniture",
-        parentId: "5",
-        image: TImages.furnitureIcon,
-        isFeatured: false),
-    CategoryModel(
-        id: "13",
-        name: "Office furniture",
-        parentId: "5",
-        image: TImages.furnitureIcon,
-        isFeatured: false),
-
-    //electronics
-    CategoryModel(
-        id: "14",
         name: "Laptop",
         image: TImages.electronicsIcon,
         parentId: "2",
         isFeatured: false),
     CategoryModel(
-        id: "15",
+        id: "13",
         name: "Mobile",
         image: TImages.electronicsIcon,
         parentId: "2",
         isFeatured: false),
 
+    //Clothes
     CategoryModel(
-        id: "16",
-        name: "Shirts",
+        id: "14",
+        name: "Jackets",
         image: TImages.clothIcon,
         parentId: "3",
+        isFeatured: false),
+    //Animals
+    CategoryModel(
+        id: "15",
+        name: "Dog feed",
+        image: TImages.furnitureIcon,
+        parentId: "4",
+        isFeatured: false),
+    //Furnitures
+    CategoryModel(
+        id: "16",
+        name: "Bedroom furniture",
+        parentId: "5",
+        image: TImages.furnitureIcon,
+        isFeatured: false),
+    //Shoes
+    CategoryModel(
+        id: "17",
+        name: "Sport Shoes",
+        parentId: "6",
+        image: TImages.furnitureIcon,
+        isFeatured: false),
+    CategoryModel(
+        id: "18",
+        name: "Formal Shoes",
+        parentId: "6",
+        image: TImages.furnitureIcon,
+        isFeatured: false),
+    CategoryModel(
+        id: "19",
+        name: "Flip Flops",
+        parentId: "6",
+        image: TImages.furnitureIcon,
         isFeatured: false),
   ];
 
@@ -637,7 +652,7 @@ class TDummyData {
       price: 15000,
       title: "Apple Iphone 8",
       isFeatured: true,
-      thumbnail: TImages.adidasFootball,
+      thumbnail: TImages.iphone8_1,
       description:
           "iOS 11, up to iOS 16.7.5 64GB/128GB/256GB storage, no card slot",
       brand: BrandModel(
@@ -853,6 +868,7 @@ class TDummyData {
     BrandCategoryModel(brandId: "9", categoryId: "2"),
     BrandCategoryModel(brandId: "10", categoryId: "4")
   ];
+
   static final List<ProductCategoryModel> productCategorys = [
     ProductCategoryModel(productId: "001", categoryId: "1"),
     ProductCategoryModel(productId: "001", categoryId: "6"),
@@ -867,5 +883,18 @@ class TDummyData {
     ProductCategoryModel(productId: "009", categoryId: "2"),
     ProductCategoryModel(productId: "010", categoryId: "6"),
     ProductCategoryModel(productId: "011", categoryId: "4"),
+    //Sub Category
+    ProductCategoryModel(productId: "001", categoryId: "9"),
+    ProductCategoryModel(productId: "004", categoryId: "10"),
+    ProductCategoryModel(productId: "006", categoryId: "11"),
+    ProductCategoryModel(productId: "005", categoryId: "12"),
+    ProductCategoryModel(productId: "008", categoryId: "13"),
+    ProductCategoryModel(productId: "009", categoryId: "13"),
+    ProductCategoryModel(productId: "002", categoryId: "14"),
+    ProductCategoryModel(productId: "011", categoryId: "15"),
+    ProductCategoryModel(productId: "007", categoryId: "16"),
+    ProductCategoryModel(productId: "001", categoryId: "17"),
+    ProductCategoryModel(productId: "003", categoryId: "18"),
+    ProductCategoryModel(productId: "010", categoryId: "19"),
   ];
 }

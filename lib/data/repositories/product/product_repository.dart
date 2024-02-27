@@ -18,13 +18,18 @@ class ProductRepository extends GetxController {
   final _db = FirebaseFirestore.instance;
 
   //Getall Products
-  Future<List<ProductModel>> getFeaturedProducts() async {
+  Future<List<ProductModel>> getFeaturedProducts({int limit = 4}) async {
     try {
-      final snapshot = await _db
-          .collection("Products")
-          .where("IsFeatured", isEqualTo: true)
-          .limit(4)
-          .get();
+      final snapshot = (limit == -1)
+          ? await _db
+              .collection("Products")
+              .where("IsFeatured", isEqualTo: true)
+              .get()
+          : await _db
+              .collection("Products")
+              .where("IsFeatured", isEqualTo: true)
+              .limit(4)
+              .get();
 
       return snapshot.docs.map((e) => ProductModel.fromSnapshot(e)).toList();
     } on FirebaseException catch (e) {
@@ -67,6 +72,28 @@ class ProductRepository extends GetxController {
           .toList();
 
       return productsList;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } catch (e) {
+      throw "Something went wrong. Please try again";
+    }
+  }
+
+  Future<List<ProductModel>> getFavouriteProducts(
+      List<String> productIds) async {
+    try {
+      final snapshot = await _db
+          .collection("Products")
+          .where(FieldPath.documentId, whereIn: productIds)
+          .get();
+
+      return snapshot.docs
+          .map((querySnapshot) => ProductModel.fromSnapshot(querySnapshot))
+          .toList();
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on PlatformException catch (e) {
@@ -122,7 +149,9 @@ class ProductRepository extends GetxController {
       List<String> productIds = productsCategoryQuery.docs
           .map((doc) => doc["productId"] as String)
           .toList();
-
+      if (productIds.isEmpty) {
+        return [];
+      }
       final productsQuery = await _db
           .collection("Products")
           .where(FieldPath.documentId, whereIn: productIds)

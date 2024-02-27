@@ -26,7 +26,7 @@ class ProductController extends GetxController {
       isLoading.value = true;
 
       //fetch categories from data source
-      final products = await _productRepository.getFeaturedProducts();
+      final products = await _productRepository.getFeaturedProducts(limit: -1);
       //Assign products
       featuredProducts.assignAll(products);
 
