@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:t_store/features/shop/controllers/cart_controller.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
 
@@ -13,6 +15,7 @@ class TCartCounterIcon extends StatelessWidget {
   final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(CartController());
     final dark = THelperFunctions.isDarkMode(context);
     return Stack(
       children: [
@@ -31,12 +34,14 @@ class TCartCounterIcon extends StatelessWidget {
                 color: Colors.black,
                 borderRadius: BorderRadius.circular(100.0)),
             child: Center(
-              child: Text(
-                "2",
-                style: Theme.of(context)
-                    .textTheme
-                    .labelLarge!
-                    .apply(color: TColors.white, fontSizeFactor: 0.85),
+              child: Obx(
+                () => Text(
+                  controller.noOfCartItems.value.toString(),
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelLarge!
+                      .apply(color: TColors.white, fontSizeFactor: 0.85),
+                ),
               ),
             ),
           ),

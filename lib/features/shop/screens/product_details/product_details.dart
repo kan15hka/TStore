@@ -21,7 +21,9 @@ class ProductDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       //Bottom Cart
-      bottomNavigationBar: const TBottomAddToCart(),
+      bottomNavigationBar: TBottomAddToCart(
+        product: product,
+      ),
       body: SingleChildScrollView(
         child: Column(children: [
           //Product Image Slider
@@ -86,10 +88,10 @@ class ProductDetailScreen extends StatelessWidget {
                   trimMode: TrimMode.Line,
                   trimCollapsedText: "  Show more",
                   trimExpandedText: "  Less",
-                  moreStyle:
-                      const TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
-                  lessStyle:
-                      const TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                  moreStyle: const TextStyle(
+                      fontSize: 14, fontWeight: FontWeight.w800),
+                  lessStyle: const TextStyle(
+                      fontSize: 14, fontWeight: FontWeight.w800),
                 ),
 
                 //Reviews

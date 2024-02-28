@@ -102,9 +102,9 @@ class TImages {
       "assets/images/on_boarding_images/sammy-line-delivery.gif";
 
   // -- Products
-  static const String nikeAir1 = "assets/images/products/nike_air (1).png";
-  static const String nikeAir2 = "assets/images/products/nike_air (2).png";
-  static const String nikeAir3 = "assets/images/products/nike_air (3).png";
+  static const String nikeAir1 = "assets/images/products/nike_air_1.png";
+  static const String nikeAir2 = "assets/images/products/nike_air_2.png";
+  static const String nikeAir3 = "assets/images/products/nike_air_3.png";
 
   static const String nikeJordan_blackred =
       "assets/images/products/NikeAirJOrdonBlackRed.png";
@@ -130,36 +130,55 @@ class TImages {
   static const String zara_trackSuit_red =
       "assets/images/products/tracksuit_red.png";
 
-  static const String acerLaptop1 =
-      "assets/images/products/acer_laptop (1).png";
-  static const String acerLaptop2 =
-      "assets/images/products/acer_laptop (2).png";
-  static const String acerLaptop3 =
-      "assets/images/products/acer_laptop (3).png";
-  static const String acerLaptop4 =
-      "assets/images/products/acer_laptop (4).png";
+  static const String acerLaptop1 = "assets/images/products/acer_laptop_1.png";
+  static const String acerLaptop2 = "assets/images/products/acer_laptop_2.png";
+  static const String acerLaptop3 = "assets/images/products/acer_laptop_3.png";
+  static const String acerLaptop4 = "assets/images/products/acer_laptop_4.png";
 
-  static const String hmBed1 = "assets/images/products/hm_bed (1).png";
-  static const String hmBed2 = "assets/images/products/hm_bed (2).png";
-  static const String hmBed3 = "assets/images/products/hm_bed (3).png";
-  static const String hmBed4 = "assets/images/products/hm_bed (4).png";
+  static const String hmBed1 = "assets/images/products/hm_bed_1.png";
+  static const String hmBed2 = "assets/images/products/hm_bed_2.png";
+  static const String hmBed3 = "assets/images/products/hm_bed_3.png";
+  static const String hmBed4 = "assets/images/products/hm_bed_4.png";
 
-  static const String iphone8_1 = "assets/images/products/iphone_8 (1).png";
-  static const String iphone8_2 = "assets/images/products/iphone_8 (2).png";
-  static const String iphone8_3 = "assets/images/products/iphone_8 (3).png";
-  static const String iphone8_4 = "assets/images/products/iphone_8 (4).png";
+  static const String iphone8_1 = "assets/images/products/iphone_8_1.png";
+  static const String iphone8_2 = "assets/images/products/iphone_8_2.png";
+  static const String iphone8_3 = "assets/images/products/iphone_8_3.png";
+  static const String iphone8_4 = "assets/images/products/iphone_8_4.png";
 
   static const String iphone12_1 = "assets/images/products/iphone_12_red.png";
   static const String iphone12_2 = "assets/images/products/iphone_12_blue.png";
   static const String iphone12_3 = "assets/images/products/iphone_12_green.png";
   static const String iphone12_4 = "assets/images/products/iphone_12_black.png";
 
-  static const String pumaSlipper1 = "assets/images/products/slipper (1).png";
-  static const String pumaSlipper2 = "assets/images/products/slipper (2).png";
-  static const String pumaSlipper3 = "assets/images/products/slipper (3).png";
-  static const String pumaSlipper4 = "assets/images/products/slipper (4).png";
+  static const String pumaSlipper1 = "assets/images/products/slipper_1.png";
+  static const String pumaSlipper2 = "assets/images/products/slipper_2.png";
+  static const String pumaSlipper3 = "assets/images/products/slipper_3.png";
+  static const String pumaSlipper4 = "assets/images/products/slipper_4.png";
 
   static const String dogfood1 = "assets/images/products/dogfood.png";
+
+  static const String tennisRacket1 =
+      "assets/images/products/tennis_racket.png";
+
+  static const String cricketBat1 = "assets/images/products/cricket_bat.png";
+
+  static const String bedWardobe1 =
+      "assets/images/products/bedroom_wardrobe.png";
+
+  static const String polyJacket1 = "assets/images/products/poly_jacket.png";
+
+  static const String kitchenCounter1 =
+      "assets/images/products/kitchen_counter.png";
+
+  static const String fridge1 = "assets/images/products/refrigerator.png";
+
+  static const String flipflop1 = "assets/images/products/flipflop.png";
+
+  static const String trackSuit1 = "assets/images/products/track_suit.png";
+
+  static const String tShirt1 = "assets/images/products/tshirt.png";
+
+  static const String officeChair1 = "assets/images/products/office_chair.png";
 
   // -- Product Reviews
   static const String userProfileImage1 =

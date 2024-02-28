@@ -4,6 +4,7 @@ import 'package:t_store/common/widgets/custom_shapes/containers/rounded_containe
 import 'package:t_store/common/widgets/icons/circular_icon.dart';
 import 'package:t_store/common/widgets/images/rounded_image.dart';
 import 'package:t_store/common/widgets/products/favourite_icon/favourite_icon.dart';
+import 'package:t_store/common/widgets/products/product_cards/add_to_cart_button.dart';
 import 'package:t_store/common/widgets/texts/brand_title_text_with_verifiacion_icon.dart';
 import 'package:t_store/common/widgets/texts/product_price_text.dart';
 import 'package:t_store/features/shop/controllers/product/product_controller.dart';
@@ -137,24 +138,8 @@ class TProductCardHorizontal extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                            color: dark ? TColors.primary : TColors.dark,
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(TSizes.cardRadiusMd),
-                              bottomRight:
-                                  Radius.circular(TSizes.productImageRadius),
-                            )),
-                        child: const SizedBox(
-                          height: TSizes.iconLg * 1.2,
-                          width: TSizes.iconLg * 1.2,
-                          child: Center(
-                            child: Icon(
-                              Iconsax.add,
-                              color: TColors.white,
-                            ),
-                          ),
-                        ),
+                      TProductCardAddToCartButton(
+                        product: product,
                       )
                     ],
                   )

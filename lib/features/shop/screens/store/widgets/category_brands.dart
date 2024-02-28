@@ -29,7 +29,7 @@ class TCategoryBrands extends StatelessWidget {
             ],
           );
           final widget = TCloudHelperFunctions.checkMultiRecordState(
-              snapshot: snapshot, loader: loader, returnWidgetInt: 0);
+              snapshot: snapshot, loader: loader, nothingFound: Container());
 
           if ((widget) != null) {
             return widget;
