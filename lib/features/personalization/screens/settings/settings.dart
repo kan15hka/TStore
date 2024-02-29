@@ -6,8 +6,11 @@ import 'package:t_store/common/widgets/custom_shapes/containers/primary_header_c
 import 'package:t_store/common/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:t_store/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:t_store/common/widgets/texts/section_heading.dart';
+import 'package:t_store/data/repositories/authentication/authentication_repository.dart';
 import 'package:t_store/features/personalization/screens/address/address.dart';
 import 'package:t_store/features/personalization/screens/profile/profile.dart';
+import 'package:t_store/features/shop/controllers/settings_controller.dart';
+import 'package:t_store/features/shop/screens/cart/cart.dart';
 import 'package:t_store/features/shop/screens/load_data/load_data.dart';
 import 'package:t_store/features/shop/screens/order/order.dart';
 import 'package:t_store/utils/constants/colors.dart';
@@ -18,6 +21,7 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(SettingsController());
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(children: [
@@ -65,7 +69,8 @@ class SettingsScreen extends StatelessWidget {
                   title: "My Address",
                   subtitle: "Set Shipping delivery address",
                 ),
-                const TSettingMenuTile(
+                TSettingMenuTile(
+                  onTap: () => Get.to(() => const CartScreen()),
                   icon: Iconsax.shopping_cart,
                   title: "My Cart",
                   subtitle: "Add, remove Products and move to checkout",
@@ -117,27 +122,36 @@ class SettingsScreen extends StatelessWidget {
                   icon: Iconsax.location,
                   title: "Geolocation",
                   subtitle: "Set Recomendation based on location",
-                  trailing: Switch(
-                    value: true,
-                    onChanged: (value) {},
+                  trailing: Obx(
+                    () => Switch(
+                      value: controller.geoLocationSwitch.value,
+                      onChanged: (value) =>
+                          controller.geoLocationSwitch.value = value,
+                    ),
                   ),
                 ),
                 TSettingMenuTile(
                   icon: Iconsax.security_user,
                   title: "Safe Mode",
                   subtitle: "Search result is safe for all ages",
-                  trailing: Switch(
-                    value: false,
-                    onChanged: (value) {},
+                  trailing: Obx(
+                    () => Switch(
+                      value: controller.safeModeSwitch.value,
+                      onChanged: (value) =>
+                          controller.safeModeSwitch.value = value,
+                    ),
                   ),
                 ),
                 TSettingMenuTile(
                   icon: Iconsax.image,
                   title: "HD Image Quality",
                   subtitle: "Set Image quality tobe seen",
-                  trailing: Switch(
-                    value: false,
-                    onChanged: (value) {},
+                  trailing: Obx(
+                    () => Switch(
+                      value: controller.hdImgQualitySwitch.value,
+                      onChanged: (value) =>
+                          controller.hdImgQualitySwitch.value = value,
+                    ),
                   ),
                 ),
 
@@ -148,7 +162,8 @@ class SettingsScreen extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: OutlinedButton(
-                      onPressed: () {},
+                      onPressed: () =>
+                          AuthenticationRepository.instance.logout(),
                       child: Text("Logout",
                           style: Theme.of(context).textTheme.titleMedium)),
                 ),

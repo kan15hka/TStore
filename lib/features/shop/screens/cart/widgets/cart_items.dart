@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:t_store/common/widgets/products/cart/add_remove_button.dart';
 import 'package:t_store/common/widgets/products/cart/cart_item.dart';
 import 'package:t_store/common/widgets/texts/product_price_text.dart';
-import 'package:t_store/features/shop/controllers/cart_controller.dart';
+import 'package:t_store/features/shop/controllers/product/cart_controller.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 
 class TCartItems extends StatelessWidget {
@@ -46,7 +46,7 @@ class TCartItems extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          SizedBox(
+                          const SizedBox(
                             width: 70.0,
                           ),
                           TProductQuantityWithAddRemoveButton(
@@ -57,7 +57,7 @@ class TCartItems extends StatelessWidget {
                         ],
                       ),
                       Padding(
-                          padding: EdgeInsets.only(right: 15.0),
+                          padding: const EdgeInsets.only(right: 15.0),
                           child: TProductPriceText(
                               price: (item.price * item.quantity)
                                   .toStringAsFixed(1)))

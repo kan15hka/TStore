@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:t_store/data/repositories/authentication/authentication_repository.dart';
 import 'package:t_store/features/personalization/models/address_model.dart';
@@ -12,8 +11,9 @@ class AddressRepository extends GetxController {
   Future<List<AddressModel>> fetchUserAddresses() async {
     try {
       final userId = AuthenticationRepository.instance.authUser!.uid;
-      if (userId.isEmpty)
-        throw "Unable to find user information.Tryagain in few minutes.";
+      if (userId.isEmpty) {
+        throw "Unable to find user information.Try again in few minutes.";
+      }
 
       final result = await _db
           .collection("Users")

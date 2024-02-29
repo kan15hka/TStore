@@ -106,13 +106,13 @@ class TImages {
   static const String nikeAir2 = "assets/images/products/nike_air_2.png";
   static const String nikeAir3 = "assets/images/products/nike_air_3.png";
 
-  static const String nikeJordan_blackred =
+  static const String nikeJordanBlackred =
       "assets/images/products/NikeAirJOrdonBlackRed.png";
-  static const String nikeJordan_orange =
+  static const String nikeJordanOrange =
       "assets/images/products/NikeAirJOrdonOrange.png";
-  static const String nikeJordan_magenta =
+  static const String nikeJordanMagenta =
       "assets/images/products/NikeAirJordonwhiteMagenta.png";
-  static const String nikeJordan_whitered =
+  static const String nikeJordanWhiteRed =
       "assets/images/products/NikeAirJOrdonWhiteRed.png";
 
   static const String adidasJacket1 =
@@ -123,11 +123,11 @@ class TImages {
   static const String adidasFootball =
       "assets/images/products/Adidas_Football.png";
 
-  static const String zara_trackSuit_black =
+  static const String zaraTrackSuitBlack =
       "assets/images/products/tracksuit_black.png";
-  static const String zara_trackSuit_blue =
+  static const String zaraTrackSuitBlue =
       "assets/images/products/tracksuit_blue.png";
-  static const String zara_trackSuit_red =
+  static const String zaraTrackSuitRed =
       "assets/images/products/tracksuit_red.png";
 
   static const String acerLaptop1 = "assets/images/products/acer_laptop_1.png";

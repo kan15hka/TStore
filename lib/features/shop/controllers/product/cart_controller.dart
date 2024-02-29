@@ -94,7 +94,7 @@ class CartController extends GetxController {
         //Show ialog before comletely removing
         cartItems[index].quantity == 1
             ? removeFromCartDialog(index)
-            : cartItems.remove(index);
+            : cartItems.removeAt(index);
       }
     }
     updateCart();
@@ -104,8 +104,8 @@ class CartController extends GetxController {
     Get.defaultDialog(
         textConfirm: "Remove",
         buttonColor: TColors.primary,
-        titlePadding: EdgeInsets.only(top: 15),
-        contentPadding: EdgeInsets.all(15),
+        titlePadding: const EdgeInsets.only(top: 15),
+        contentPadding: const EdgeInsets.all(15),
         title: "Remove Product",
         middleText: "Are you sure want to remove this project?",
         onConfirm: () {

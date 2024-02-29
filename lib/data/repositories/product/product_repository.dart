@@ -233,7 +233,6 @@ class ProductRepository extends GetxController {
     } on PlatformException catch (e) {
       throw TPlatformException(e.code).message;
     } catch (e) {
-      print(e);
       throw "Someting went wrong. Please try again";
     } finally {
       TFullScreenLoader.stopLoading();

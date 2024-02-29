@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:t_store/features/shop/controllers/cart_controller.dart';
+import 'package:t_store/features/shop/controllers/product/cart_controller.dart';
 import 'package:t_store/features/shop/models/product_model.dart';
 import 'package:t_store/features/shop/screens/product_details/product_details.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/enums.dart';
 import 'package:t_store/utils/constants/sizes.dart';
-import 'package:t_store/utils/helpers/helper_functions.dart';
 
 class TProductCardAddToCartButton extends StatelessWidget {
   const TProductCardAddToCartButton({
@@ -19,7 +18,6 @@ class TProductCardAddToCartButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkMode(context);
     final cartController = CartController.instance;
     return InkWell(
       onTap: () {
@@ -44,8 +42,8 @@ class TProductCardAddToCartButton extends StatelessWidget {
                 top: -10,
                 left: -10,
                 child: Container(
-                  padding: EdgeInsets.all(7.5),
-                  decoration: BoxDecoration(
+                  padding: const EdgeInsets.all(7.5),
+                  decoration: const BoxDecoration(
                       shape: BoxShape.circle, color: TColors.dark),
                   child: Center(
                     child: Text(
@@ -73,7 +71,7 @@ Widget buttonWidget(bool isProductAdded) {
           topLeft: Radius.circular(TSizes.cardRadiusMd),
           bottomRight: Radius.circular(TSizes.productImageRadius),
         )),
-    child: SizedBox(
+    child: const SizedBox(
       height: TSizes.iconLg * 1.2,
       width: TSizes.iconLg * 1.2,
       child: Center(

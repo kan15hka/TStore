@@ -339,7 +339,7 @@ class TDummyData {
       price: 135,
       title: "Nike Air Jordan",
       isFeatured: true,
-      thumbnail: TImages.nikeJordan_magenta,
+      thumbnail: TImages.nikeJordanMagenta,
       description:
           "MJ wore 'em when he claimed his first championship and you'll be wearing 'em for—well, whatever you want. Laden with dynamic design lines and those iconic lace locks, these sneakers bring throwback style to any 'fit. Lace up, and let your kicks do the talking.",
       brand: BrandModel(
@@ -349,10 +349,10 @@ class TDummyData {
           productsCount: 360,
           isFeatured: true),
       images: [
-        TImages.nikeJordan_blackred,
-        TImages.nikeJordan_orange,
-        TImages.nikeJordan_magenta,
-        TImages.nikeJordan_whitered,
+        TImages.nikeJordanBlackred,
+        TImages.nikeJordanOrange,
+        TImages.nikeJordanMagenta,
+        TImages.nikeJordanWhiteRed,
       ],
       salePrice: 30,
       sku: "ABR4568",
@@ -379,7 +379,7 @@ class TDummyData {
           id: "5",
           stock: 222,
           price: 102,
-          image: TImages.nikeJordan_magenta,
+          image: TImages.nikeJordanMagenta,
           attributeValues: {"Color": "Magenta", "Size": "EU 30"},
         ),
         ProductVariationModel(
@@ -388,7 +388,7 @@ class TDummyData {
           id: "6",
           stock: 25,
           price: 334,
-          image: TImages.nikeJordan_magenta,
+          image: TImages.nikeJordanMagenta,
           attributeValues: {"Color": "Magenta", "Size": "EU 32"},
         ),
         ProductVariationModel(
@@ -398,7 +398,7 @@ class TDummyData {
           stock: 34,
           price: 134,
           salePrice: 122.6,
-          image: TImages.nikeJordan_blackred,
+          image: TImages.nikeJordanBlackred,
           attributeValues: {"Color": "Black", "Size": "EU 30"},
         ),
         ProductVariationModel(
@@ -407,7 +407,7 @@ class TDummyData {
           id: "2",
           stock: 15,
           price: 132,
-          image: TImages.nikeJordan_blackred,
+          image: TImages.nikeJordanBlackred,
           attributeValues: {"Color": "Black", "Size": "EU 32"},
         ),
         ProductVariationModel(
@@ -416,7 +416,7 @@ class TDummyData {
           id: "3",
           stock: 0,
           price: 234,
-          image: TImages.nikeJordan_orange,
+          image: TImages.nikeJordanOrange,
           attributeValues: {"Color": "Orange", "Size": "EU 30"},
         ),
         ProductVariationModel(
@@ -425,7 +425,7 @@ class TDummyData {
           id: "4",
           stock: 232,
           price: 234,
-          image: TImages.nikeJordan_orange,
+          image: TImages.nikeJordanOrange,
           attributeValues: {"Color": "Orange", "Size": "EU 32"},
         ),
         ProductVariationModel(
@@ -434,7 +434,7 @@ class TDummyData {
           id: "7",
           stock: 222,
           price: 102,
-          image: TImages.nikeJordan_whitered,
+          image: TImages.nikeJordanWhiteRed,
           attributeValues: {"Color": "Red", "Size": "EU 30"},
         ),
         ProductVariationModel(
@@ -443,7 +443,7 @@ class TDummyData {
           id: "8",
           stock: 25,
           price: 334,
-          image: TImages.nikeJordan_whitered,
+          image: TImages.nikeJordanWhiteRed,
           attributeValues: {"Color": "Red", "Size": "EU 32"},
         ),
       ],
@@ -455,7 +455,7 @@ class TDummyData {
       price: 560,
       title: "Zara Track Suit",
       isFeatured: true,
-      thumbnail: TImages.zara_trackSuit_black,
+      thumbnail: TImages.zaraTrackSuitBlack,
       description:
           "Tracksuits are a wardrobe staple for fitness and fashion enthusiasts alike for their comfy feel and trendy appearance. Crafted from breathable materials, the outfit helps avoid sweat, keeping you cool and comfortable all day long as well as for workout sessions.",
       brand: BrandModel(
@@ -465,9 +465,9 @@ class TDummyData {
           productsCount: 690,
           isFeatured: true),
       images: [
-        TImages.zara_trackSuit_black,
-        TImages.zara_trackSuit_blue,
-        TImages.zara_trackSuit_red,
+        TImages.zaraTrackSuitBlack,
+        TImages.zaraTrackSuitBlue,
+        TImages.zaraTrackSuitRed,
       ],
       salePrice: 500,
       sku: "ABR4568",
@@ -492,7 +492,7 @@ class TDummyData {
           stock: 34,
           price: 134,
           salePrice: 122.6,
-          image: TImages.zara_trackSuit_black,
+          image: TImages.zaraTrackSuitBlack,
           description:
               "This is a product description of the producct variation",
           attributeValues: {"Color": "Black", "Size": "EU 30"},
@@ -501,7 +501,7 @@ class TDummyData {
           id: "2",
           stock: 15,
           price: 132,
-          image: TImages.zara_trackSuit_black,
+          image: TImages.zaraTrackSuitBlack,
           attributeValues: {"Color": "Black", "Size": "EU 32"},
           description:
               "This is a product description of the producct variation",
@@ -510,7 +510,7 @@ class TDummyData {
           id: "3",
           stock: 0,
           price: 234,
-          image: TImages.zara_trackSuit_blue,
+          image: TImages.zaraTrackSuitBlue,
           attributeValues: {"Color": "Blue", "Size": "EU 30"},
           description:
               "This is a product description of the producct variation",
@@ -519,7 +519,7 @@ class TDummyData {
           id: "4",
           stock: 232,
           price: 234,
-          image: TImages.zara_trackSuit_blue,
+          image: TImages.zaraTrackSuitBlue,
           attributeValues: {"Color": "Blue", "Size": "EU 32"},
           description:
               "This is a product description of the producct variation",
@@ -528,7 +528,7 @@ class TDummyData {
           id: "5",
           stock: 222,
           price: 102,
-          image: TImages.zara_trackSuit_red,
+          image: TImages.zaraTrackSuitRed,
           attributeValues: {"Color": "Red", "Size": "EU 30"},
           description:
               "This is a product description of the producct variation",
@@ -537,7 +537,7 @@ class TDummyData {
           id: "6",
           stock: 25,
           price: 334,
-          image: TImages.zara_trackSuit_red,
+          image: TImages.zaraTrackSuitRed,
           attributeValues: {"Color": "Red", "Size": "EU 32"},
           description:
               "This is a product description of the producct variation",

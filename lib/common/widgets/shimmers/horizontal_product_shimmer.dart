@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:t_store/common/widgets/layouts/grid_layout.dart';
 import 'package:t_store/common/widgets/shimmers/shimmer.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 
@@ -9,16 +8,16 @@ class TVerticalProductShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: TSizes.spaceBtwSections),
+      margin: const EdgeInsets.only(bottom: TSizes.spaceBtwSections),
       height: 120.0,
       child: ListView.separated(
         itemCount: itemCount,
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
-        separatorBuilder: (context, index) => SizedBox(
+        separatorBuilder: (context, index) => const SizedBox(
           width: TSizes.spaceBtwItems,
         ),
-        itemBuilder: (_, __) => Row(
+        itemBuilder: (_, __) => const Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             TShimmerEffect(

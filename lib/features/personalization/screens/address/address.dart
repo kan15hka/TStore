@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:lottie/lottie.dart';
 import 'package:t_store/common/widgets/appbar/appbar.dart';
 import 'package:t_store/common/widgets/loaders/animation_loader.dart';
 import 'package:t_store/common/widgets/shimmers/shimmer.dart';
@@ -13,7 +12,6 @@ import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/device/device_utility.dart';
 import 'package:t_store/utils/helpers/cloud_helper_functions.dart';
-import 'package:t_store/utils/helpers/helper_functions.dart';
 
 class UserAddressScreen extends StatelessWidget {
   const UserAddressScreen({super.key});
@@ -39,7 +37,7 @@ class UserAddressScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-            padding: EdgeInsets.all(TSizes.defaultSpace),
+            padding: const EdgeInsets.all(TSizes.defaultSpace),
             child: Obx(
               () => FutureBuilder(
                 //Use key to trigger refresh
@@ -50,7 +48,7 @@ class UserAddressScreen extends StatelessWidget {
                     text: "Whoops! Address is Empty...",
                     animation: TImages.pencilAnimation,
                     showAction: true,
-                    actionText: "Let\'s add some",
+                    actionText: "Let's add some",
                     onActionPressed: () =>
                         Get.to(() => const AddNewAddressScreen()),
                   );
@@ -60,7 +58,7 @@ class UserAddressScreen extends StatelessWidget {
                         width: TDeviceUtils.getScreenWidth(context) - 30.0,
                         height: 120.0,
                       ),
-                      SizedBox(height: TSizes.spaceBtwItems),
+                      const SizedBox(height: TSizes.spaceBtwItems),
                       TShimmerEffect(
                         width: TDeviceUtils.getScreenWidth(context) - 30.0,
                         height: 120.0,

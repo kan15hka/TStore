@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:t_store/common/widgets/loaders/loaders.dart';
+import 'package:t_store/common/widgets/texts/section_heading.dart';
 import 'package:t_store/data/repositories/address/address_repository.dart';
 import 'package:t_store/features/personalization/models/address_model.dart';
+import 'package:t_store/features/personalization/screens/address/add_new_address.dart';
+import 'package:t_store/features/personalization/screens/address/widgets/single_address.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
+import 'package:t_store/utils/constants/sizes.dart';
+import 'package:t_store/utils/helpers/cloud_helper_functions.dart';
 import 'package:t_store/utils/helpers/network_manager.dart';
 import 'package:t_store/utils/popups/full_scree_loader.dart';
 
@@ -49,10 +54,10 @@ class AddressController extends GetxController {
               child: Container(
                 height: 50.0,
                 width: 50.0,
-                padding: EdgeInsets.all(12.5),
-                decoration: BoxDecoration(
+                padding: const EdgeInsets.all(12.5),
+                decoration: const BoxDecoration(
                     color: TColors.primary, shape: BoxShape.circle),
-                child: CircularProgressIndicator(
+                child: const CircularProgressIndicator(
                   color: TColors.white,
                   strokeWidth: 4,
                 ),
@@ -141,5 +146,57 @@ class AddressController extends GetxController {
       TLoaders.warningSnackBar(
           title: 'Address Not found!', message: e.toString());
     }
+  }
+
+  Future<dynamic> selectNewAddressPopUp(BuildContext context) {
+    return showModalBottomSheet(
+        context: context,
+        builder: (_) => Container(
+              padding: const EdgeInsets.all(TSizes.lg),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const TSectionHeading(
+                      title: "Select Address",
+                      showActionButton: false,
+                    ),
+                    const SizedBox(
+                      height: TSizes.spaceBtwItems,
+                    ),
+                    FutureBuilder(
+                        future: getAllUserAddresses(),
+                        builder: (_, snapshot) {
+                          //Helper Functions
+                          final response =
+                              TCloudHelperFunctions.checkMultiRecordState(
+                                  snapshot: snapshot);
+                          if (response != null) return response;
+
+                          return ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: snapshot.data!.length,
+                              itemBuilder: (_, index) => TSingleAddress(
+                                  address: snapshot.data![index],
+                                  onTap: () async {
+                                    await selectAddress(snapshot.data![index]);
+                                    Get.back();
+                                  }));
+                        }),
+                    const SizedBox(
+                      height: TSizes.defaultSpace * 2,
+                    ),
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: () =>
+                            Get.to(() => const AddNewAddressScreen()),
+                        child: const Text("Add new address"),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ));
   }
 }

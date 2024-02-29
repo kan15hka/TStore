@@ -1,29 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:t_store/features/shop/controllers/product/cart_controller.dart';
 import 'package:t_store/features/shop/screens/checkout/widgets/pricing_text.dart';
+import 'package:t_store/utils/helpers/pricing_calculator.dart';
 
 class TBillingAmountSection extends StatelessWidget {
   const TBillingAmountSection({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final cartController = CartController.instance;
+    final subTotal = cartController.totalCartPrice.value;
     return Column(
       children: [
         TRowPricingText(
           title: "SubTotal",
-          value: "\$256.0",
+          value: "\$$subTotal",
           valuTextStyle: Theme.of(context).textTheme.bodyMedium,
         ),
-        const TRowPricingText(
+        TRowPricingText(
           title: "Shipping Fee",
-          value: "\$6.0",
+          value:
+              "\$${TPricingCalculator.calculateShippingCost(subTotal, "US")}",
         ),
-        const TRowPricingText(
+        TRowPricingText(
           title: "Tax Fee",
-          value: "\$6.0",
+          value: "\$${TPricingCalculator.calculateTax(subTotal, "US")}",
         ),
         TRowPricingText(
           title: "Order Total",
-          value: "\$6.0",
+          value: "\$${TPricingCalculator.calculateTotalPrice(subTotal, "US")}",
           valuTextStyle: Theme.of(context).textTheme.titleMedium,
         ),
       ],

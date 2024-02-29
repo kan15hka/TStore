@@ -8,8 +8,6 @@ import 'package:t_store/common/widgets/loaders/animation_loader.dart';
 import 'package:t_store/common/widgets/products/product_cards/product_cards_vertical.dart';
 import 'package:t_store/common/widgets/shimmers/vertical_product_shimmer.dart';
 import 'package:t_store/features/shop/controllers/product/favourites_controller.dart';
-import 'package:t_store/features/shop/models/product_model.dart';
-import 'package:t_store/features/shop/screens/home/home.dart';
 import 'package:t_store/navigation_menu.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
@@ -37,7 +35,7 @@ class WishListScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(TSizes.defaultSpace),
+          padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: Column(children: [
             Obx(
               () => FutureBuilder(
@@ -50,7 +48,7 @@ class WishListScreen extends StatelessWidget {
                       text: "Whoops! Wishlist is Empty...",
                       animation: TImages.pencilAnimation,
                       showAction: true,
-                      actionText: "Let\'s add some",
+                      actionText: "Let's add some",
                       onActionPressed: () {
                         NavigationController.instance.selectedIndex.value = 0;
                       },

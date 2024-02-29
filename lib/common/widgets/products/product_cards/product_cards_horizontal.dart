@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:t_store/common/widgets/custom_shapes/containers/rounded_container.dart';
-import 'package:t_store/common/widgets/icons/circular_icon.dart';
 import 'package:t_store/common/widgets/images/rounded_image.dart';
 import 'package:t_store/common/widgets/products/favourite_icon/favourite_icon.dart';
 import 'package:t_store/common/widgets/products/product_cards/add_to_cart_button.dart';
@@ -11,7 +9,6 @@ import 'package:t_store/features/shop/controllers/product/product_controller.dar
 import 'package:t_store/features/shop/models/product_model.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/enums.dart';
-import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
 
@@ -97,7 +94,7 @@ class TProductCardHorizontal extends StatelessWidget {
                           title: product.title,
                           smallSize: true,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: TSizes.spaceBtwItems / 2,
                         ),
                         TBrandTitleTextWithVerificationIcon(
