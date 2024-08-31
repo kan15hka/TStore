@@ -1,16 +1,20 @@
-# t_store
+# 🛍️ TStore: A FullStack Ecommerce App for Small Scale Businesses
 
-A new Flutter project.
+![DR4Vuu_VSZA-HD](https://github.com/user-attachments/assets/3b437aa3-eb3c-48cb-abdc-8440cdca0cdc)
 
-## Getting Started
+TStore is a full-stack eCommerce application specifically designed for small-scale businesses, providing a seamless online store management experience with secure payment processing and customer engagement tools.
 
-This project is a starting point for a Flutter application.
+![ZH9cTTF2c60-HD](https://github.com/user-attachments/assets/ec69e3ba-fdd4-48e6-ad6f-032f19cad67c)
 
-A few resources to get you started if this is your first Flutter project:
+## ✨ Key Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- 🏬 **Online Store Management**: Manage products, inventory, and orders efficiently.
+- 🔐 **Secure Payment Processing**: Integrated payment gateway for safe and secure transactions.
+- 📊 **Customer Engagement Tools**: Engage with customers through promotions, notifications, and reviews.
+- 📱 **Responsive Design**: Optimized for both mobile and web platforms.
+- 🔄 **Real-Time Updates**: Powered by Firebase for real-time data synchronization.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🛠️ Technology Stack
+
+- **Frontend**: Flutter
+- **Backend**: Firebase (Firestore, Authentication, Cloud Functions)
